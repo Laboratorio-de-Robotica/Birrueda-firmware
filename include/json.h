@@ -38,4 +38,5 @@ std::map<String, std::function<void(const JsonDocument&)>> jsonCommands;
 void onJsonMessageReceived(const char* jsonStr, enum class MediaType mediaType = MediaType::ANY);
 
 void sendJsonMessage(const JsonDocument&, enum class MediaType mediaType = MediaType::ANY);
+
 #endif // JSON_H

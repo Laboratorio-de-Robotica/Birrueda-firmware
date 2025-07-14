@@ -1,9 +1,10 @@
 #ifndef DIFF_MOTOR_H
 #define DIFF_MOTOR_H
 
+#include "jsonCommand.h"
 #include <freertos/timers.h>
 
-class DiffMotors{
+class DiffMotors : public JsonCommand {
 public:
   
   /**
@@ -39,8 +40,12 @@ public:
    * @param leftPWM Valor del PWM para el motor izquierdo.
    * @param rightPWM Valor del PWM para el motor derecho.
    * @param duration Duración en milisegundos para la cual se debe mantener el PWM. Si es 0, se mantiene indefinidamente.
+   *
+   * Notar que por defecto `duration` es 1000 ms (1 segundo), y no 0 (para siempre).
+   * El valor 0 se debe especificar explícitamente.
+   * Esto es una medida de seguridad para evitar que los motores se queden encendidos indefinidamente.
    */
-  void setPWM(int leftPWM, int rightPWM, int duration=0);
+  void setPWM(int leftPWM, int rightPWM, int duration=1000);
 
   /**
    * @brief Detiene los motores estableciendo el PWM a 0.
@@ -48,6 +53,19 @@ public:
   void stop() {
       setPWM(0, 0);
   }
+
+  /**
+   * @brief Recibe comandos JSON.
+   * 
+   * Este comando espera un objeto JSON con los siguientes parámetros:
+   * 
+   * - leftPWM: PWM del motor izquierdo
+   * - rightPWM: PWM del motor derecho
+   * - duration: (opcional) duración en milisegundos para la cual se debe mantener el PWM
+   * 
+   * Invoca a `setPWM` con los valores proporcionados en el JSON.
+   */
+  void jsonCommand(const JsonDocument& doc) override;
 
   /** Handle para el temporizador de la función setPWM */
   TimerHandle_t runTimer = nullptr;

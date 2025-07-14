@@ -22,7 +22,7 @@ void DiffMotors::init(int leftMotorPin, int leftPWMChannel, int leftDirPin, int 
 
   // Inicialización del temporizador de setPWM
   runTimer = xTimerCreate("DiffMotorsTimer", pdMS_TO_TICKS(1000), pdFALSE, nullptr, diffMotorsTimerCallback);
-};
+}
 
 void DiffMotors::setPWM(int leftPWM, int rightPWM, int duration){
   xTimerStop(runTimer, 0);
@@ -36,6 +36,17 @@ void DiffMotors::setPWM(int leftPWM, int rightPWM, int duration){
   if(duration>0){
     xTimerChangePeriod(runTimer, pdMS_TO_TICKS(duration), 0);
     xTimerStart(runTimer, 0);
+  }
+}
+
+void DiffMotors::jsonCommand(const JsonDocument& doc) {
+  if (doc.containsKey("leftPWM") && doc.containsKey("rightPWM")) {
+    if(doc.containsKey("duration")) {
+      setPWM(doc["leftPWM"], doc["rightPWM"], doc["duration"]);
+    } else {
+      // Si no se especifica duración, usar el valor por defecto
+      setPWM(doc["leftPWM"], doc["rightPWM"]);
+    }
   }
 }
 
