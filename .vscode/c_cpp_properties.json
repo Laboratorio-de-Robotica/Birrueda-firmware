@@ -10,6 +10,7 @@
             "includePath": [
                 "/home/alejandro/Desarrollo/Laboratorio de robótica/Birrueda-firmware/include",
                 "/home/alejandro/Desarrollo/Laboratorio de robótica/Birrueda-firmware/src",
+                "/home/alejandro/Desarrollo/Laboratorio de robótica/Birrueda-firmware/.pio/libdeps/esp32dev/ArduinoJson/src",
                 "/home/alejandro/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/newlib/platform_include",
                 "/home/alejandro/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include",
                 "/home/alejandro/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include/esp_additions/freertos",
@@ -246,6 +247,7 @@
                 "path": [
                     "/home/alejandro/Desarrollo/Laboratorio de robótica/Birrueda-firmware/include",
                     "/home/alejandro/Desarrollo/Laboratorio de robótica/Birrueda-firmware/src",
+                    "/home/alejandro/Desarrollo/Laboratorio de robótica/Birrueda-firmware/.pio/libdeps/esp32dev/ArduinoJson/src",
                     "/home/alejandro/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/newlib/platform_include",
                     "/home/alejandro/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include",
                     "/home/alejandro/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include/esp_additions/freertos",

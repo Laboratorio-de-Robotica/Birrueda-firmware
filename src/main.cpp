@@ -1,18 +1,19 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+// Definición de pines
+#define PIN_MOTOR_LEFT 5
+#define PIN_MOTOR_RIGHT 6
 
+// Módulos
+#include "json.h"
+
+// Variables globales
+
+// Inicialización
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
 }
